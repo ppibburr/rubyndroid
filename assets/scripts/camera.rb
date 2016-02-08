@@ -6,7 +6,7 @@ class MySurfaceHolderCallback < Android::View::SurfaceHolder::Callback.delegate
   attr_reader :camera
 
   def surfaceCreated(holder, *o)
-    @camera = Android::Hardware::Camera.method_missing(:open) # Add (1) for front camera
+    @camera = Android::Hardware::Camera.open # Add (1) for front camera
     @camera.preview_display = holder
     @camera.start_preview
   end
